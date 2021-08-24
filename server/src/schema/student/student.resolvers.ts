@@ -12,17 +12,20 @@ export const StudentResolvers = {
     students: async (root: any, { filter, page = 0, perPage = 10 }: StudentQueryInterface): Promise<StudentsConnection> => {
       let offset = 0 === page ? 0 : page * perPage;
       let query = db.select().from("student");
+      let countQuery = db.count('* as total').from('student');
 
       if (filter) {
         query = query.where('name', 'LIKE', `%${filter}%`)
           .orWhere('email', 'LIKE', `%${filter}%`)
           .orWhere('cpf', 'LIKE', `%${filter}%`);
+
+        countQuery = countQuery.where('name', 'LIKE', `%${filter}%`)
+          .orWhere('email', 'LIKE', `%${filter}%`)
+          .orWhere('cpf', 'LIKE', `%${filter}%`);
       }
 
       const [totalQuery, results] = await Promise.all([
-        db.count('* as total')
-          .from("student")
-          .first(),
+        countQuery.first(),
         query.offset(offset)
           .limit(perPage),
       ]);
