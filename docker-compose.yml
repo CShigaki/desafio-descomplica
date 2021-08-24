@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    depends_on:
+      - server
+    volumes:
+      - './app:/app'
+      - '/app/node_modules'
+    ports:
+      - '3001:3000'
+    environment:
+      - NODE_ENV=development
+
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: descomplica
+    ports:
+      - 3306:3306
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - './server:/server'
+      - '/server/node_modules'
+    ports:
+      - '8080:4000'
+    environment:
+      - NODE_ENV=development
