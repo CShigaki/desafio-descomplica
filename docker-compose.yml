@@ -1,20 +1,6 @@
 version: '3.7'
 
 services:
-  app:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
-    depends_on:
-      - server
-    volumes:
-      - './app:/app'
-      - '/app/node_modules'
-    ports:
-      - '3001:3000'
-    environment:
-      - NODE_ENV=development
-
   db:
     image: mysql:5.7
     container_name: mysql
@@ -34,8 +20,24 @@ services:
       - db
     volumes:
       - './server:/server'
-      - '/server/node_modules'
     ports:
-      - '8080:4000'
+      - '4000:4000'
+    environment:
+      - NODE_ENV=development
+      - WAIT_HOSTS=mysql:3306
+      - WAIT_HOSTS_TIMEOUT=300
+      - WAIT_SLEEP_INTERVAL=30
+      - WAIT_HOST_CONNECT_TIMEOUT=30
+
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    depends_on:
+      - server
+    volumes:
+      - './app:/app'
+    ports:
+      - '3000:3000'
     environment:
       - NODE_ENV=development

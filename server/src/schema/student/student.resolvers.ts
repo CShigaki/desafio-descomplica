@@ -9,7 +9,7 @@ interface StudentQueryInterface {
 
 export const StudentResolvers = {
   Query: {
-    students: async (root: any, { filter, page = 0, perPage = 10 }: StudentQueryInterface): Promise<StudentsConnection> => {
+    students: async (_: any, { filter, page = 0, perPage = 10 }: StudentQueryInterface): Promise<StudentsConnection> => {
       let offset = 0 === page ? 0 : page * perPage;
       let query = db.select().from("student");
       let countQuery = db.count('* as total').from('student');

@@ -79,7 +79,7 @@ export const StudentsList: React.FC<StudentsListProps> = ({ filter }) => {
       {loading &&
         <Loader />
       }
-      {(!loading && !!data) && (
+      {(!loading && 0 !== data.students.results.length) && (
         <>
           {memoizedStudents}
           <Pagination
@@ -91,7 +91,7 @@ export const StudentsList: React.FC<StudentsListProps> = ({ filter }) => {
           />
         </>
       )}
-      {!loading && 0 === data.students.length &&
+      {!loading && 0 === data.students.results.length &&
         <EmptyState />
       }
     </StudentListContainer>

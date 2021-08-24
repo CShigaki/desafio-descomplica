@@ -2,11 +2,12 @@ import 'module-alias/register';
 
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
-// import cors from 'cors';
+import cors from 'cors';
 
 import { schema } from './src/schema';
-import { APP_PORT } from './config/environment';
+import { APP_PORT, NODE_ENV } from './config/environment';
 import AuthRoutes from 'routes/auth';
+import SeedRoutes from 'routes/seed';
 
 const run = async () => {
   const server = new ApolloServer({
@@ -15,11 +16,17 @@ const run = async () => {
   await server.start();
 
   const app = express();
-  // app.use(cors({
-  //   origin: 'localhost:3000',
-  //   credentials: false,
-  // }));
+  app.use(express.json());
+  app.use(express.urlencoded({
+    extended: true,
+  }));
+  app.use(cors());
   app.use(AuthRoutes);
+
+  if ('development' === NODE_ENV) {
+    console.log(NODE_ENV);
+    app.use(SeedRoutes);
+  }
 
   server.applyMiddleware({ app, path: '/data' });
 

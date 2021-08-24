@@ -30,13 +30,15 @@ const PortraitContainer = styled.div`
 
 const Portrait = styled.img`
   border-radius: 72px;
+
+  max-width: 117px;
 `;
 
 export const StudentCard: React.FC<StudentCardProps> = ({ student }) => {
   return (
-    <StudentCardContainer>
+    <StudentCardContainer data-testid="student-card">
       <PortraitContainer>
-        <Portrait alt="portrait" src={student.gravatar} />
+        <Portrait alt="portrait" src={student.gravatar ?? "/fallback.png"} />
       </PortraitContainer>
       <div>
         <p>Name: {student.name}</p>
