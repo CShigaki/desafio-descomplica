@@ -1,0 +1,27 @@
+body, html {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Roboto';
+}
+
+html {
+  background-color: var(--gray-background);
+}
+
+a:visited,
+a:hover,
+a:active,
+a:-webkit-any-link {
+  color: inherit;
+}
+
+button {
+  outline: 0;
+  border: 0;
+  border-radius: 3px;
+}
+
+.MuiTablePagination-root {
+  overflow: hidden !important;
+}

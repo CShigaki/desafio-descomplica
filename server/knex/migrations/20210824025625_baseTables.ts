@@ -6,6 +6,7 @@ export const up = async (knex: Knex): Promise<void> => {
     tableBuilder.string('name');
     tableBuilder.string('email').unique();
     tableBuilder.string('cpf', 16).unique();
+    tableBuilder.string('gravatar');
   });
 };
 
