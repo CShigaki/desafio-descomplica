@@ -66,7 +66,7 @@ describe('Students', () => {
     cy.contains('Ana').should('be.visible');
   });
 
-  it.only('paginates results', async () => {
+  it('paginates results', async () => {
     const fixture = await cy.fixture('student/testPagination.json');
 
     cy.seedTable<Student>({
