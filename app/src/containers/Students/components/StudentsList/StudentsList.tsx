@@ -62,7 +62,7 @@ export const StudentsList: React.FC<StudentsListProps> = ({ filter }) => {
 
   const handleChangeRowsPerPage = (rowsPerPage: number) => {
     setPaginationInfo({
-      page: paginationInfo.page,
+      page: 0,
       rowsPerPage,
     });
   }

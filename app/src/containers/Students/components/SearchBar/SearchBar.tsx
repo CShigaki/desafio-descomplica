@@ -38,6 +38,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onChange }) => {
     <SearchBarContainer>
       <SearchFieldContainer>
         <StyledTextInput
+          data-testid="search-field"
           aria-label="Name, CPF or email"
           name="filter"
           type="text"

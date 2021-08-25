@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "name": "Celso",
+    "cpf": "111111111111",
+    "email": "celso.shigaki@gmail.com"
+  },
+  {
+    "id": "2",
+    "name": "Genji",
+    "cpf": "222222222222",
+    "email": "genji@gmail.com"
+  },
+  {
+    "id": "3",
+    "name": "Ana",
+    "cpf": "333333333333",
+    "email": "ana@gmail.com"
+  },
+  {
+    "id": "4",
+    "name": "Torb",
+    "cpf": "444444444444",
+    "email": "torb@gmail.com"
+  },
+  {
+    "id": "5",
+    "name": "Serana",
+    "cpf": "55555555555",
+    "email": "serana@gmail.com"
+  },
+  {
+    "id": "6",
+    "name": "Minsc",
+    "cpf": "66666666666",
+    "email": "minsc@gmail.com"
+  },
+  {
+    "id": "7",
+    "name": "Dynaheir",
+    "cpf": "77777777777",
+    "email": "dynaheir@gmail.com"
+  },
+  {
+    "id": "8",
+    "name": "Edwin",
+    "cpf": "88888888888",
+    "email": "edwin@gmail.com"
+  },
+  {
+    "id": "9",
+    "name": "Jaheira",
+    "cpf": "99999999999",
+    "email": "jaheira@gmail.com"
+  },
+  {
+    "id": "10",
+    "name": "Khalid",
+    "cpf": "00000000000",
+    "email": "khalid@gmail.com"
+  },
+  {
+    "id": "11",
+    "name": "Faerie",
+    "cpf": "12121212121",
+    "email": "faerie@gmail.com"
+  },
+  {
+    "id": "12",
+    "name": "Jan",
+    "cpf": "13131313131",
+    "email": "jan@gmail.com"
+  }
+]

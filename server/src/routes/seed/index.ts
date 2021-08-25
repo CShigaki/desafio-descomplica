@@ -11,7 +11,6 @@ SeedRoutes.post('/seed', async (req, res) => {
 });
 
 SeedRoutes.post('/clear', async (req, res) => {
-  console.log(`clearing ${req.body.tableName}`);
   await db(req.body.tableName).del();
 
   res.sendStatus(200);

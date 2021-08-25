@@ -23,8 +23,8 @@ const run = async () => {
   app.use(cors());
   app.use(AuthRoutes);
 
+  // The seed routes are only available in the development environment for testing purposes.
   if ('development' === NODE_ENV) {
-    console.log(NODE_ENV);
     app.use(SeedRoutes);
   }
 
