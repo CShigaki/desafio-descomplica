@@ -1,3 +1,5 @@
+import { gql } from '@apollo/client';
+
 export interface Student {
   id: string;
   name: string;
@@ -5,3 +7,23 @@ export interface Student {
   cpf: string;
   gravatar?: string;
 }
+
+export const STUDENTS_QUERY = gql`
+  query getStudents ($filter: String!, $page: Int, $perPage: Int) {
+    students (filter: $filter, page: $page, perPage: $perPage) {
+      results {
+        id
+        email
+        cpf
+        name
+        gravatar
+      }
+      metadata {
+        currentPage
+        perPage
+        pageCount
+        total
+      }
+    }
+  }
+`;

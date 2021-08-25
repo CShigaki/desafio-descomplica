@@ -1,11 +1,11 @@
-import React, { useMemo, useCallback, useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 
 import { StudentCard } from '../StudentCard';
 import { Pagination } from '../Pagination';
 import { EmptyState } from '../EmptyState';
-import { Student } from 'containers/Students/StudentService';
+import { Student, STUDENTS_QUERY } from 'containers/Students/StudentService';
 import { Loader } from 'components/Loader';
 
 interface StudentsListProps {
@@ -28,29 +28,14 @@ export const StudentsList: React.FC<StudentsListProps> = ({ filter }) => {
     rowsPerPage: 10,
   });
 
-  const createQuery = useCallback(() => {
-    return gql`
-      {
-        students (filter: "${filter}", page: ${paginationInfo.page}, perPage: ${paginationInfo.rowsPerPage}) {
-          results {
-            id
-            email
-            cpf
-            name
-            gravatar
-          }
-          metadata {
-            currentPage
-            perPage
-            pageCount
-            total
-          }
-        }
-      }
-    `
-  }, [filter, paginationInfo]);
+  const { data, loading } = useQuery(STUDENTS_QUERY, {
+    variables: {
+      filter,
+      page: paginationInfo.page,
+      perPage: paginationInfo.rowsPerPage,
+    },
+  });
 
-  const { data, loading } = useQuery(createQuery());
   const memoizedStudents = useMemo(() => {
     return (
       <StudentListContainer>
