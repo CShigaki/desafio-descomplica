@@ -57,6 +57,7 @@ const TablePaginationActions: React.FC<TablePaginationActionsProps> = ({ count, 
         onClick={handleLastPageButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
         aria-label="last page"
+        data-testid="pagination-previous-page"
       >
         <LastPageIcon />
       </IconButtonWithLessPadding>
@@ -78,11 +79,13 @@ export const Pagination: React.FC<PaginationProps> = ({ page, count, rowsPerPage
       component="div"
       count={count}
       page={page}
-      SelectProps={{ style: { marginRight: '5px', overflow: 'hidden' } }}
+      // Select props only allows some predefined props, which means we typescript won't let us add the data-testid attribute
+      // tell ts to ignore that.
+      // @ts-ignore
+      SelectProps={{ style: { marginRight: '5px', overflow: 'hidden' }, "data-testid": 'rows-per-page' }}
       ActionsComponent={TablePaginationActions}
       labelRowsPerPage=""
       onPageChange={(_: any, page: number) => handlePageChange(page)}
-      // labelDisplayedRows={({ from, to, count }) => `${from}-${to} até ${count !== -1 ? count : to}`}
       rowsPerPage={rowsPerPage}
       onRowsPerPageChange={(event) => handleChangeRowsPerPage(Number(event.target.value))}
     />

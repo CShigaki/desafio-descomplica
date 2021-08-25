@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback, useState } from 'react';
+import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { gql, useQuery } from '@apollo/client';
 
@@ -21,6 +21,7 @@ const StudentListContainer = styled.div`
   margin-top: 16px;
 `;
 
+// This will only be tested using the integration tests.
 export const StudentsList: React.FC<StudentsListProps> = ({ filter }) => {
   const [paginationInfo, setPaginationInfo] = useState<PaginationInfo>({
     page: 0,

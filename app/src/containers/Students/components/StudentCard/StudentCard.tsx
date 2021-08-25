@@ -38,12 +38,12 @@ export const StudentCard: React.FC<StudentCardProps> = ({ student }) => {
   return (
     <StudentCardContainer data-testid="student-card">
       <PortraitContainer>
-        <Portrait alt="portrait" src={student.gravatar ?? "/fallback.png"} />
+        <Portrait data-testid="student-portrait" alt="portrait" src={student.gravatar ?? "/fallback.png"} />
       </PortraitContainer>
       <div>
-        <p>Name: {student.name}</p>
-        <p>Email: {student.email}</p>
-        <p>CPF: {student.cpf}</p>
+        <p>{student.name}</p>
+        <p>{student.email}</p>
+        <p>{student.cpf}</p>
       </div>
     </StudentCardContainer>
   );
