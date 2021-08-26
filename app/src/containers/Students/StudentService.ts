@@ -9,8 +9,8 @@ export interface Student {
 }
 
 export const STUDENTS_QUERY = gql`
-  query getStudents ($filter: String!, $page: Int, $perPage: Int) {
-    students (filter: $filter, page: $page, perPage: $perPage) {
+  query getStudents($filter: String!, $page: Int, $perPage: Int) {
+    students(filter: $filter, page: $page, perPage: $perPage) {
       results {
         id
         email

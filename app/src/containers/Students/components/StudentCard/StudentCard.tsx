@@ -5,7 +5,7 @@ import { Student } from 'containers/Students/StudentService';
 
 interface StudentCardProps {
   student: Student;
-};
+}
 
 const StudentCardContainer = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const StudentCardContainer = styled.div`
   word-wrap: break-word;
 
   background-color: white;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const PortraitContainer = styled.div`
@@ -38,7 +38,11 @@ export const StudentCard: React.FC<StudentCardProps> = ({ student }) => {
   return (
     <StudentCardContainer data-testid="student-card">
       <PortraitContainer>
-        <Portrait data-testid="student-portrait" alt="portrait" src={student.gravatar ?? "/fallback.png"} />
+        <Portrait
+          data-testid="student-portrait"
+          alt="portrait"
+          src={student.gravatar ?? '/fallback.png'}
+        />
       </PortraitContainer>
       <div>
         <p>{student.name}</p>

@@ -20,7 +20,12 @@ const IconButtonWithLessPadding = styled(IconButton)`
   padding-right: 0 !important;
 `;
 
-const TablePaginationActions: React.FC<TablePaginationActionsProps> = ({ count, onPageChange, page, rowsPerPage }) => {
+const TablePaginationActions: React.FC<TablePaginationActionsProps> = ({
+  count,
+  onPageChange,
+  page,
+  rowsPerPage,
+}) => {
   const handleFirstPageButtonClick = (event: any) => {
     onPageChange(event, 0);
   };
@@ -39,10 +44,18 @@ const TablePaginationActions: React.FC<TablePaginationActionsProps> = ({ count, 
 
   return (
     <ActionsContainer>
-      <IconButtonWithLessPadding onClick={handleFirstPageButtonClick} disabled={page === 0} aria-label="first page">
+      <IconButtonWithLessPadding
+        onClick={handleFirstPageButtonClick}
+        disabled={page === 0}
+        aria-label="first page"
+      >
         <FirstPageIcon />
       </IconButtonWithLessPadding>
-      <IconButtonWithLessPadding onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
+      <IconButtonWithLessPadding
+        onClick={handleBackButtonClick}
+        disabled={page === 0}
+        aria-label="previous page"
+      >
         <KeyboardArrowLeft />
       </IconButtonWithLessPadding>
       <IconButtonWithLessPadding
@@ -73,7 +86,13 @@ interface PaginationProps {
   handlePageChange: Function;
 }
 
-export const Pagination: React.FC<PaginationProps> = ({ page, count, rowsPerPage, handleChangeRowsPerPage, handlePageChange }) => {
+export const Pagination: React.FC<PaginationProps> = ({
+  page,
+  count,
+  rowsPerPage,
+  handleChangeRowsPerPage,
+  handlePageChange,
+}) => {
   return (
     <TablePagination
       component="div"
@@ -81,13 +100,19 @@ export const Pagination: React.FC<PaginationProps> = ({ page, count, rowsPerPage
       page={page}
       // Select props only allows some predefined props, which means we typescript won't let us add the data-testid attribute
       // tell ts to ignore that.
-      // @ts-ignore
-      SelectProps={{ style: { marginRight: '5px', overflow: 'hidden' }, "data-testid": 'rows-per-page' }}
+      SelectProps={{
+        style: { marginRight: '5px', overflow: 'hidden' },
+        // prettier-ignore
+        // @ts-ignore
+        "data-testid": "rows-per-page",
+      }}
       ActionsComponent={TablePaginationActions}
       labelRowsPerPage=""
       onPageChange={(_: any, page: number) => handlePageChange(page)}
       rowsPerPage={rowsPerPage}
-      onRowsPerPageChange={(event) => handleChangeRowsPerPage(Number(event.target.value))}
+      onRowsPerPageChange={(event) =>
+        handleChangeRowsPerPage(Number(event.target.value))
+      }
     />
   );
-}
+};

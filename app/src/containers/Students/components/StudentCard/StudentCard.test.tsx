@@ -14,16 +14,14 @@ describe('StudentCard', () => {
       gravatar: 'gravatar-url',
     };
 
-    render(
-      <StudentCard
-        student={student}
-      />
-    );
+    render(<StudentCard student={student} />);
 
     expect(screen.getByText(/Celso/)).toBeVisible();
     expect(screen.getByText(/11111111111/i)).toBeVisible();
     expect(screen.getByText(/celso.shigaki@gmail.com/i)).toBeVisible();
-    expect(screen.getByTestId('student-portrait').getAttribute('src')).toBe('gravatar-url');
+    expect(screen.getByTestId('student-portrait').getAttribute('src')).toBe(
+      'gravatar-url'
+    );
   });
 
   it('renders fallback in case gravatar props isnt supplied', async () => {
@@ -34,12 +32,10 @@ describe('StudentCard', () => {
       email: 'celso.shigaki@gmail.com',
     };
 
-    render(
-      <StudentCard
-        student={student}
-      />
-    );
+    render(<StudentCard student={student} />);
 
-    expect(screen.getByTestId('student-portrait').getAttribute('src')).toBe('/fallback.png');
+    expect(screen.getByTestId('student-portrait').getAttribute('src')).toBe(
+      '/fallback.png'
+    );
   });
 });

@@ -6,14 +6,14 @@ import { TextInput } from 'components/TextInput';
 
 interface SearchBarProps {
   onChange: Function;
-};
+}
 
 const SearchBarContainer = styled.div`
   padding: 20px;
   border-radius: 4px;
 
   background-color: white;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const SearchFieldContainer = styled.div`
@@ -30,9 +30,13 @@ const StyledTextInput = styled(TextInput)`
 export const SearchBar: React.FC<SearchBarProps> = ({ onChange }) => {
   const [filter, setFilter] = useState<string>('');
 
-  useDebounce(() => {
-    onChange(filter);
-  }, 1000, [filter]);
+  useDebounce(
+    () => {
+      onChange(filter);
+    },
+    1000,
+    [filter]
+  );
 
   return (
     <SearchBarContainer>

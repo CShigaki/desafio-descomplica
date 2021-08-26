@@ -27,6 +27,7 @@
     "@types/styled-components": "^5.1.12",
     "axios": "^0.21.1",
     "cypress": "^8.3.0",
+    "prettier": "2.3.2",
     "typescript": "^4.3.5"
   },
   "scripts": {
@@ -35,7 +36,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:integration": "cypress run",
-    "test:integration:open": "cypress open"
+    "test:integration:open": "cypress open",
+    "prettier:check": "prettier --check ./src",
+    "prettier:write": "prettier --write ./src"
   },
   "eslintConfig": {
     "extends": [

@@ -6,8 +6,8 @@ import { Students } from 'containers/Students';
 export const Routes: React.FC = () => {
   return (
     <Switch>
-      <Route exact path="/" render={() => <Home />}/>
-      <Route exact path="/students" render={() => <Students />}/>
+      <Route exact path="/" render={() => <Home />} />
+      <Route exact path="/students" render={() => <Students />} />
     </Switch>
   );
 };

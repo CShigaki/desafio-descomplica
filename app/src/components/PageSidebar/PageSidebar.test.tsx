@@ -3,11 +3,11 @@ import { render, screen } from '@testing-library/react';
 import { PageSidebar } from 'components/PageSidebar';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
   useLocation: () => ({
-    pathname: "/students"
-  })
+    pathname: '/students',
+  }),
 }));
 
 describe('PageSidebar', () => {

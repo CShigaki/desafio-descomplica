@@ -4,9 +4,7 @@ import { Loader } from 'components/Loader';
 
 describe('Loader', () => {
   it('renders loader', async () => {
-    render(
-      <Loader />
-    );
+    render(<Loader />);
 
     expect(screen.getByTestId('loader')).toBeInTheDocument();
   });
