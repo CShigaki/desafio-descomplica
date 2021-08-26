@@ -37,6 +37,6 @@ jobs:
       - uses: bahmutov/npm-install@v1
         with:
           working-directory: server
-      - name: test
+      - name: Run tests with jest
         run: yarn test
         working-directory: server

@@ -1,4 +1,4 @@
-name: Server CI
+name: App CI
 
 on:
   pull_request:
@@ -37,6 +37,6 @@ jobs:
       - uses: bahmutov/npm-install@v1
         with:
           working-directory: app
-      - name: test
+      - name: Run tests with jest
         run: yarn test
         working-directory: app

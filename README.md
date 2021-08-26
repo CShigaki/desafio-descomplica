@@ -60,6 +60,8 @@ After all services finish booting up you can access the application on
 A migration and some fixtures have already been created and are executed automatically when the server container starts. If you want more data to test the pagination run the scenario `'paginates results'` using cypress.
 
 ### Running tests
+I added two workflows both for the server and the app that will run using github actions whenever a change is made to app or server. If a file changes in the `app` folder it will only run tests from the app folder and vice-versa. Sadly, since the cypress tests depend on some containers being up it would be a bit harder to create the workflow, so I left it out.
+
 #### Server
 You can run the tests by acessing the `server` folder and running `yarn test` or `yarn test:watch`
 
