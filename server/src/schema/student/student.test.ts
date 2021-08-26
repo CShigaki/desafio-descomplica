@@ -53,7 +53,7 @@ describe('Student Resolvers', () => {
       });
 
       request
-        .post("/data")
+        .post("/api/data")
         .send({
           query: `
             {
@@ -124,7 +124,7 @@ describe('Student Resolvers', () => {
       });
 
       request
-        .post("/data")
+        .post("/api/data")
         .send({
           query: `
             {
@@ -170,7 +170,7 @@ describe('Student Resolvers', () => {
       const request: supertest.SuperTest<supertest.Test> = supertest(app);
 
       request
-        .post("/data")
+        .post("/api/data")
         .send({
           query: `
             {
