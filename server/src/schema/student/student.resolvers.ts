@@ -1,5 +1,5 @@
 import db from 'db/connection';
-import { Student, StudentsConnection } from './student.types';
+import { StudentsConnection } from './student.types';
 
 interface StudentQueryInterface {
   filter?: string;
@@ -33,7 +33,7 @@ export const StudentResolvers = {
       return {
         results,
         metadata: {
-          currentPage: page,
+          page,
           perPage,
           pageCount: Math.ceil(Number(totalQuery?.total!) / perPage),
           total: Number(totalQuery?.total!),

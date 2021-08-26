@@ -1,4 +1,4 @@
-import Knex from 'knex';
+import knex from 'knex';
 import knexConfig from 'root/knexfile';
 
-export default Knex(knexConfig);
+export default knex(knexConfig);

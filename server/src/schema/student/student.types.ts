@@ -1,7 +1,7 @@
 import { gql } from 'apollo-server-express';
 
 interface Metadata {
-  currentPage: number;
+  page: number;
   perPage: number;
   pageCount: number;
   total: number;
@@ -33,10 +33,10 @@ export const StudentSchema = gql`
   }
 
   type Metadata {
-    currentPage: Int
-    perPage: Int
-    pageCount: Int
-    total: Int
+    page: Int!
+    perPage: Int!
+    pageCount: Int!
+    total: Int!
   }
 
   type StudentsConnection {
