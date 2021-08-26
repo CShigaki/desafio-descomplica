@@ -16,12 +16,11 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
+    container_name: server
     depends_on:
       - db
     volumes:
       - './server:/server'
-    ports:
-      - '4000:4000'
     environment:
       - NODE_ENV=development
       - WAIT_HOSTS=mysql:3306
@@ -33,11 +32,22 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
+    container_name: app
     depends_on:
       - server
     volumes:
       - './app:/app'
-    ports:
-      - '3000:3000'
     environment:
       - NODE_ENV=development
+
+  proxy:
+    container_name: proxy
+    hostname: proxy
+    build:
+      dockerfile: Dockerfile
+      context: ./proxy
+    depends_on:
+      - app
+      - server
+    ports:
+      - 80:80

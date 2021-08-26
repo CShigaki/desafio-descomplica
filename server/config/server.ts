@@ -29,7 +29,7 @@ export const configureServer = async (): Promise<express.Express> => {
     app.use(SeedRoutes);
   }
 
-  server.applyMiddleware({ app, path: '/data' });
+  server.applyMiddleware({ app, path: '/api/data' });
 
   return app;
 };

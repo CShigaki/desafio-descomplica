@@ -17,12 +17,12 @@ interface SeedTableOptions<T> {
 
 function seedTable<T>(options: SeedTableOptions<T>) {
   cy.log(`Seeding table ${options.tableName}`, options.data);
-  cy.wrap(axios.post('http://localhost:4000/seed', options), { log: false, timeout: 5000 });
+  cy.wrap(axios.post('http://descomplica.server.local/api/seed', options), { log: false, timeout: 15000 });
 }
 
 function clearTable(tableName: string) {
   cy.log(`Clearing table ${tableName}`);
-  cy.wrap(axios.post('http://localhost:4000/clear', { tableName }), { log: false, timeout: 5000 });
+  cy.wrap(axios.post('http://descomplica.server.local/api/clear', { tableName }), { log: false, timeout: 15000 });
 };
 
 Cypress.Commands.add('seedTable', seedTable);
