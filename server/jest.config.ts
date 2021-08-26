@@ -4,8 +4,6 @@ module.exports = {
   moduleFileExtensions: ['js', 'ts'],
   testEnvironment: 'node',
   moduleNameMapper: {
-    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|mp3)$": "<rootDir>/__mocks__/fileMock.js",
-    "\\.(css|scss|sass)$": "<rootDir>/__mocks__/styleMock.js",
     "^root(.*)$": "<rootDir>$1",
     "^config(.*)$": "<rootDir>/config$1",
     "^db(.*)$": "<rootDir>/src/db$1",
