@@ -10,8 +10,8 @@ const StyledTextInput = styled.input`
   outline: 0;
 `;
 
-export const TextInput: React.FC<InputHTMLAttributes<HTMLInputElement>> = (props) => {
-  return (
-    <StyledTextInput {...props} />
-  );
+export const TextInput: React.FC<InputHTMLAttributes<HTMLInputElement>> = (
+  props
+) => {
+  return <StyledTextInput {...props} />;
 };

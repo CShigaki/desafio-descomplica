@@ -18,7 +18,7 @@ const MainContainer = styled.div`
 
   width: calc(100% - 72px);
   flex: 1;
-`
+`;
 
 const Content = styled.div`
   padding: 12px;
@@ -30,9 +30,7 @@ export const PageContainer: React.FC<PageContainerProps> = ({ children }) => {
       <PageSidebar />
       <MainContainer>
         <PageHeader />
-        <Content>
-          {children}
-        </Content>
+        <Content>{children}</Content>
       </MainContainer>
     </PageWrapper>
   );

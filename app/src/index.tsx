@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 import App from './App';
 import { API_BASE } from './constants';
@@ -11,7 +11,7 @@ import './styles/colors.css';
 
 const client = new ApolloClient({
   uri: `${API_BASE}/data`,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.render(

@@ -49,7 +49,6 @@ describe('Pagination', () => {
       />
     );
 
-
     const rowsPerPageContainer = within(screen.getByTestId('rows-per-page'));
     fireEvent.mouseDown(rowsPerPageContainer.getByRole('button'));
 

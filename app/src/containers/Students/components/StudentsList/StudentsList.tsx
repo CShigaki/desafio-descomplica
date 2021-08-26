@@ -51,7 +51,7 @@ export const StudentsList: React.FC<StudentsListProps> = ({ filter }) => {
       page: 0,
       rowsPerPage,
     });
-  }
+  };
 
   const handlePageChange = (page: number) => {
     setPaginationInfo({
@@ -62,10 +62,8 @@ export const StudentsList: React.FC<StudentsListProps> = ({ filter }) => {
 
   return (
     <StudentListContainer>
-      {loading &&
-        <Loader />
-      }
-      {(!loading && 0 !== data.students.results.length) && (
+      {loading && <Loader />}
+      {!loading && 0 !== data.students.results.length && (
         <>
           {memoizedStudents}
           <Pagination
@@ -77,9 +75,7 @@ export const StudentsList: React.FC<StudentsListProps> = ({ filter }) => {
           />
         </>
       )}
-      {!loading && 0 === data.students.results.length &&
-        <EmptyState />
-      }
+      {!loading && 0 === data.students.results.length && <EmptyState />}
     </StudentListContainer>
   );
 };

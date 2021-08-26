@@ -9,15 +9,11 @@ const Header = styled.div`
   height: 50px;
   min-height: 50px;
 
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 
   background-color: white;
 `;
 
 export const PageHeader: React.FC = () => {
-  return (
-    <Header>
-      This is the header
-    </Header>
-  );
+  return <Header>This is the header</Header>;
 };

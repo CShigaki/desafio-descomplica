@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import {
-  Face,
-  Home,
-  ChevronRight,
-  ChevronLeft
-} from '@material-ui/icons';
+import { Face, Home, ChevronRight, ChevronLeft } from '@material-ui/icons';
 import { Tooltip } from '@material-ui/core';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -95,7 +90,7 @@ const ToggleSidebarButton = styled.div`
   left: 65px;
 
   color: var(--gray-dark);
-  transition: left .7s linear;
+  transition: left 0.7s linear;
 
   @media only screen and (max-width: 860px) {
     display: block;
@@ -103,7 +98,7 @@ const ToggleSidebarButton = styled.div`
 `;
 
 export const PageSidebar: React.FC = () => {
-  const [ isOpen, setIsOpen ] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(true);
   const location = useLocation();
 
   const toggleSidebar = (event: any) => {
@@ -114,12 +109,12 @@ export const PageSidebar: React.FC = () => {
     <NavBase className={isOpen ? '' : 'closed'} data-testid="sidebar">
       <Sidebar className={isOpen ? '' : 'closed'}>
         <ToggleSidebarButton className="toggle-sidebar">
-          {isOpen &&
+          {isOpen && (
             <ChevronLeft onClick={toggleSidebar} data-testid="close-sidebar" />
-          }
-          {!isOpen &&
+          )}
+          {!isOpen && (
             <ChevronRight onClick={toggleSidebar} data-testid="open-sidebar" />
-          }
+          )}
         </ToggleSidebarButton>
         <Tooltip title="Home" placement="right">
           <Link
@@ -128,13 +123,15 @@ export const PageSidebar: React.FC = () => {
             to="/"
             data-testid="link-home"
           >
-            <Home/>
+            <Home />
           </Link>
         </Tooltip>
         <Tooltip title="Students" placement="right">
           <Link
             aria-label="Students"
-            className={'/students' === location.pathname ? 'sidebar-selected-page' : ''}
+            className={
+              '/students' === location.pathname ? 'sidebar-selected-page' : ''
+            }
             to="/students"
             data-testid="link-students"
           >

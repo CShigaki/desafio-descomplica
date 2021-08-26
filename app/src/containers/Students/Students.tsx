@@ -21,8 +21,8 @@ export const Students: React.FC = () => {
 
   return (
     <StudentsContainer>
-      <SearchBar onChange={handleOnChange}/>
-      <StudentsList filter={filter}/>
+      <SearchBar onChange={handleOnChange} />
+      <StudentsList filter={filter} />
     </StudentsContainer>
   );
 };

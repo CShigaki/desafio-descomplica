@@ -1,0 +1,42 @@
+name: Server CI
+
+on:
+  pull_request:
+    paths:
+      - 'app/**'
+      - '.github/workflows/app-ci.yml'
+
+jobs:
+  cancel:
+    name: Cancel Previous Runs
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: styfle/cancel-workflow-action@0.6.0
+        with:
+          access_token: ${{ github.token }}
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: cancel
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v2
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: app
+
+  run-jest-tests:
+    name: Run Jest tests
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v2
+      - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: app
+      - name: test
+        run: yarn test
+        working-directory: app

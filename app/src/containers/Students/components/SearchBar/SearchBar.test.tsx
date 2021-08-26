@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { SearchBar } from './SearchBar';
-import userEvent from '@testing-library/user-event'
+import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
 
 describe('SearchBar', () => {
@@ -10,11 +10,7 @@ describe('SearchBar', () => {
 
     const mockedOnChangeHandler = jest.fn(() => {});
 
-    render(
-      <SearchBar
-        onChange={mockedOnChangeHandler}
-      />
-    );
+    render(<SearchBar onChange={mockedOnChangeHandler} />);
 
     userEvent.type(screen.getByTestId('search-field'), 'celso');
 
