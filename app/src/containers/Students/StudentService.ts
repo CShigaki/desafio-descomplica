@@ -19,7 +19,7 @@ export const STUDENTS_QUERY = gql`
         gravatar
       }
       metadata {
-        currentPage
+        page
         perPage
         pageCount
         total
